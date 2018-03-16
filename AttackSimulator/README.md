@@ -26,12 +26,16 @@ Operating System: Tested on CentOS 7.x
 You need to have JRE 1.7, Tomcat 7.x and MySQL 5.6. 
 
 ## Installing the AttackSimulator
-To deploy AttackSimulator, create the database schema and delpoy the war file on Tomcat. 
+To deploy AttackSimulator, 
+
+1. Create the database schema and delpoy the war file on Tomcat. 
+
 2. Update database details in config.groovy file and then compile your project.
 
 3. Update database details in following file located in below paths:
- /WEB-INF/classes/com/attacksimulator/jdbc.properties
-/WEB-INF/classes/jdbc.properties
+
+ *  /WEB-INF/classes/com/attacksimulator/jdbc.properties
+ *   /WEB-INF/classes/jdbc.properties
 
 username=xxx
 password=xxx
@@ -41,10 +45,12 @@ port=3306
 4. Also update database details in quartz.properties file located in below path:
 /WEB-INF/classes/quartz.properties
 
-4. Create a file named "AttackSimulator.xml" and copy it in below path:
+5. Create a file named "AttackSimulator.xml" and copy it in below path:
 /Tomcat/conf/Catalina/localhost
 
+
 Below entries to be copied in xml file:
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
@@ -89,7 +95,7 @@ Below entries to be copied in xml file:
            password="<your database password>"
                         />
             </Context>
-
+```
 ## Simulating an Organizational IT Environment
 When generating data feeds, AttackSimulator uses templates to set up a fictitious organizational environment. Each template uses 
 variables that get substituted at runtime. You provide values for your organization's environment, such as the number of employees,
